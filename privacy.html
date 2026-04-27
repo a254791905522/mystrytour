@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy — Mystery Tour: Hidden Object</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0c0812;
+            --card: #16101f;
+            --ink: #c4bcc8;
+            --paper: #f0e6d8;
+            --line: rgba(180, 140, 80, 0.35);
+            --gold: #c9a04a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            min-height: 100vh;
+            line-height: 1.75;
+        }
+
+        .backdrop {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 100% 40% at 50% 0%, rgba(120, 80, 40, 0.15) 0%, transparent 50%),
+                var(--bg);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 22px 64px;
+        }
+
+        @media (min-width: 640px) {
+            .wrap { padding: 48px 28px 72px; }
+        }
+
+        .mast {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .mast-ribbon {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: rgba(201, 160, 74, 0.9);
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.4rem, 3.2vw, 1.75rem);
+            font-weight: 700;
+            color: var(--paper);
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            color: rgba(196, 188, 200, 0.75);
+        }
+
+        .intro {
+            font-size: 1.02rem;
+            color: var(--ink);
+            margin-bottom: 32px;
+            padding: 18px 20px;
+            background: rgba(22, 16, 31, 0.6);
+            border: 1px solid rgba(180, 140, 80, 0.2);
+            border-radius: 2px;
+        }
+
+        .intro strong {
+            color: var(--paper);
+        }
+
+        section {
+            margin-bottom: 32px;
+        }
+
+        section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+
+        section p + p {
+            margin-top: 12px;
+        }
+
+        section strong {
+            color: var(--paper);
+        }
+
+        .chips {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .chip {
+            display: block;
+            padding: 12px 14px;
+            background: var(--card);
+            border-left: 3px solid var(--gold);
+            font-size: 0.94rem;
+        }
+
+        .chip span {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(201, 160, 74, 0.85);
+            margin-bottom: 6px;
+        }
+
+        .closing {
+            margin-top: 36px;
+            padding: 20px 18px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(196, 188, 200, 0.85);
+            border: 1px dashed rgba(180, 140, 80, 0.3);
+        }
+
+        .back {
+            margin-top: 28px;
+            text-align: center;
+        }
+
+        .back a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .back a:hover {
+            color: var(--paper);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="backdrop" aria-hidden="true"></div>
+    <div class="wrap">
+        <header class="mast">
+            <p class="mast-ribbon">Mystery tour</p>
+            <h1>Privacy in plain words</h1>
+            <p class="meta">Mystery Tour: Hidden Object · This statement applies to the iOS / iPadOS app distributed on the App Store. Effective: April 27, 2026</p>
+        </header>
+
+        <p class="intro">This page explains, in a straightforward way, what the game is designed to do with information. It is a companion to the <strong>App Store privacy details</strong> for the app you install. If Apple’s on-store summary ever differs from the text here, the store listing for your installed version should be read as the primary reference.</p>
+
+        <section>
+            <h2>What the app is</h2>
+            <p>Mystery Tour: Hidden Object is a <strong>single-player puzzle experience</strong> about finding objects in scenes. It does not require you to create an in-app account for basic play, and it is not presented as a social network or messaging product.</p>
+        </section>
+
+        <section>
+            <h2>Data the game collects</h2>
+            <p>According to the app’s <strong>App Store privacy label</strong>, the developer <strong>does not collect data from this app</strong> for the categories listed there. In other words, the product is not described as sending your personal information from the app to the developer for tracking, account databases, or similar purposes under that label.</p>
+            <p>Future updates can change what the store shows; always check the <strong>Privacy</strong> section on the app’s product page for the build you are using.</p>
+        </section>
+
+        <section>
+            <h2>Data that may stay on your device</h2>
+            <p>Like most games, Mystery Tour may use <strong>on-device storage</strong> to remember progress, settings, and similar play state. That information ordinarily remains under the device user’s control unless a separate system feature (for example, device backup) copies it according to platform rules.</p>
+            <div class="chips">
+                <div class="chip">
+                    <span>Gameplay &amp; preferences</span>
+                    Progress, scores, options, and related data may be stored locally so sessions can continue smoothly.
+                </div>
+                <div class="chip">
+                    <span>Apple &amp; the system</span>
+                    Download, updates, parental controls, and some diagnostics are handled by <strong>Apple and your device settings</strong>, not by this static document.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Advertising &amp; store rules</h2>
+            <p>The App Store age and content information may note <strong>advertising</strong> in line with the store’s own classification. How ads (if any) operate, and what choices you have, are governed by the app version, platform settings, and applicable store policies—not by anything written on this page alone.</p>
+        </section>
+
+        <section>
+            <h2>Children &amp; families</h2>
+            <p>The app is offered with a store age rating in the <strong>4+</strong> family-friendly range, subject to the rating shown on the product page. Family Sharing, Ask to Buy, and other controls are managed through the Apple ID and device settings of the account holder.</p>
+        </section>
+
+        <section>
+            <h2>Changes</h2>
+            <p>Gameplay or platform rules can shift over time. When this text is revised, the <strong>effective date</strong> at the top will be updated. Continued use of the app after a material change means you accept the updated description insofar as it reflects how the product is described here.</p>
+        </section>
+
+        <p class="closing">No contact forms, e-mail addresses, or personal identifiers appear on this page. For distribution details and the official product record, use the app’s page on the App Store only.</p>
+
+        <p class="back"><a href="index.html">← Back to the game</a></p>
+    </div>
+</body>
+
+</html>

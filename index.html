@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Tour — Hidden Object</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Outfit:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --night: #120c1a;
+            --dusk: #1e1528;
+            --ember: #8b5a2b;
+            --gold: #d4a84b;
+            --gold-soft: rgba(212, 168, 75, 0.2);
+            --lamp: #f4e4c1;
+            --fog: #a8a0b4;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--night);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            color: var(--fog);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212, 168, 75, 0.12) 0%, transparent 55%),
+                radial-gradient(ellipse 60% 40% at 100% 100%, rgba(30, 21, 40, 0.9) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0610 0%, var(--night) 35%, var(--dusk) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .lens {
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            right: -120px;
+            top: 10%;
+            border-radius: 50%;
+            border: 1px solid rgba(212, 168, 75, 0.12);
+            box-shadow:
+                0 0 80px rgba(212, 168, 75, 0.08),
+                inset 0 0 60px rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.55;
+        }
+
+        .lens::after {
+            content: '';
+            position: absolute;
+            inset: 12%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 50%);
+        }
+
+        .vignette {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.45) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 640px;
+            width: 100%;
+            padding: 40px 36px 36px;
+            position: relative;
+            z-index: 1;
+            border-radius: 4px;
+            background: linear-gradient(165deg, rgba(30, 21, 40, 0.92) 0%, rgba(18, 12, 26, 0.95) 100%);
+            border: 1px solid var(--gold-soft);
+            box-shadow:
+                0 4px 0 rgba(0, 0, 0, 0.3),
+                0 32px 64px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(244, 228, 193, 0.06);
+        }
+
+        .frame-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .ornament {
+            height: 1px;
+            flex: 1;
+            max-width: 80px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0.6;
+        }
+
+        .seal {
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(212, 168, 75, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--gold);
+            background: radial-gradient(circle at 30% 30%, rgba(244, 228, 193, 0.08) 0%, transparent 60%);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.55rem, 4vw, 2.05rem);
+            font-weight: 700;
+            color: var(--lamp);
+            text-align: center;
+            letter-spacing: 0.06em;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+
+        h1 .accent {
+            color: var(--gold);
+        }
+
+        .tagline {
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            color: rgba(168, 160, 180, 0.95);
+            margin-bottom: 24px;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .badge {
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 2px;
+            border: 1px solid rgba(212, 168, 75, 0.22);
+            color: var(--fog);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .lead {
+            color: var(--fog);
+            line-height: 1.82;
+            font-size: 1.04rem;
+            margin-bottom: 20px;
+        }
+
+        .lead strong {
+            color: var(--lamp);
+        }
+
+        .subhead {
+            font-family: 'Cinzel', serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin: 28px 0 12px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            position: relative;
+            padding: 11px 0 11px 0;
+            padding-left: 22px;
+            border-left: 2px solid rgba(139, 90, 43, 0.45);
+            margin-left: 0;
+            color: var(--fog);
+            line-height: 1.65;
+            font-size: 0.99rem;
+        }
+
+        .features li strong {
+            color: var(--lamp);
+        }
+
+        .features li::before {
+            content: '◇';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            color: var(--gold);
+            font-size: 0.65rem;
+            opacity: 0.9;
+        }
+
+        .cta {
+            display: block;
+            text-align: center;
+            margin-top: 32px;
+            padding: 15px 24px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #1a0f0a;
+            background: linear-gradient(180deg, #e8c56e 0%, #b8862d 100%);
+            border: 1px solid rgba(255, 220, 160, 0.35);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(212, 168, 75, 0.2);
+        }
+
+        .note {
+            margin-top: 14px;
+            text-align: center;
+            font-size: 0.78rem;
+            color: rgba(168, 160, 180, 0.7);
+        }
+
+        .footer {
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(212, 168, 75, 0.12);
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            color: var(--lamp);
+        }
+
+        @media (max-width: 520px) {
+            .container { padding: 28px 20px 24px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lens" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="container">
+        <div class="frame-top" aria-hidden="true">
+            <span class="ornament"></span>
+            <div class="seal" aria-hidden="true">MT</div>
+            <span class="ornament"></span>
+        </div>
+
+        <h1><span class="accent">Mystery Tour</span> · Hidden Object</h1>
+        <p class="tagline">Find &amp; discover</p>
+
+        <div class="badges">
+            <span class="badge">Puzzle</span>
+            <span class="badge">iPhone &amp; iPad</span>
+            <span class="badge">Ages 4+</span>
+        </div>
+
+        <p class="lead"><strong>Explore hand-crafted scenes, uncover secrets, and train your eye.</strong> Mystery Tour: Hidden Object is a relaxed yet focused puzzle experience: search each location for the items on your list before the clock runs out. New scenes keep the challenge fresh—<strong>speed, focus, and attention to detail</strong> are what separate a quick glance from a true find.</p>
+
+        <p class="subhead">The journey</p>
+        <p class="lead">Every level drops you into a richly detailed environment. Spot objects hidden in plain sight, work through time-based goals, and progress through a variety of settings. Whether you have a few minutes or a longer session, the loop stays simple to pick up and satisfying to clear.</p>
+
+        <div class="features">
+            <p class="subhead">What you will find</p>
+            <ul>
+                <li><strong>Immersive hidden-object play:</strong> Scenes designed for close looking and list-based searching.</li>
+                <li><strong>Time challenges:</strong> Clear stages against the timer for an extra layer of pressure.</li>
+                <li><strong>Polished presentation:</strong> High-detail artwork and a UI built for quick reads on small screens.</li>
+                <li><strong>Multiple locations:</strong> Roam different environments as you advance.</li>
+                <li><strong>Game Center:</strong> Leaderboards for friendly competition (where available).</li>
+            </ul>
+        </div>
+
+        <a href="https://apps.apple.com/us/app/mystery-tour-hidden-object/id1023123833?uo=4" class="cta" target="_blank" rel="noopener noreferrer">Get on the App Store</a>
+        <p class="note">Requires a compatible iPhone, iPad, or supported Apple device. Availability and store features may vary by region.</p>
+
+        <div class="footer">
+            <a href="privacy.html">Privacy</a>
+        </div>
+    </div>
+</body>
+
+</html>
