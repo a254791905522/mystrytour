@@ -14,6 +14,7 @@ pubnative.net, 1009046, RESELLER, d641df8625486a7b
 inmobi.com, b01aa06531c543d8a5fb9982f60afb00, RESELLER, 83e75a7ae333ca9d
 smartadserver.com, 5418, RESELLER, 060d053dcf45cbf3
 improvedigital.com, 2534, RESELLER
+yandex.com, 316145221, DIRECT
 openx.com, 540679900, RESELLER, 6a698e2ec38604c6
 betweendigital.com, 44727, RESELLER
 dauup.com, 34191, RESELLER, 4daba13e2b0dfd92
@@ -51,10 +52,8 @@ video.unrulymedia.com, 2444764291, RESELLER
 triplelift.com, 13423, RESELLER, 6c33edb13117fd86
 display.io, 156748, RESELLER
 pubmatic.com, 167323, RESELLER, 5d62403b186f2ace
-yandex.com, 111138458, DIRECT
 my-cast.tv, 987137, RESELLER, 8c33fe1bd714ffd7
 app-stock.com, 509221, RESELLER, ed8c126ea5971415
-yango-ads.com, 111138458, DIRECT
 conversantmedia.com, 100358, RESELLER, 03113cd04947736d
 adyoulike.com, f3d16fa10382ca99dca498bd4e9659c4, RESELLER
 conversantmedia.com, 100339, RESELLER, 03113cd04947736d
@@ -89,6 +88,7 @@ thebrave.io, 1234764, RESELLER, c25b2154543746ac
 screenil.com, 554156, RESELLER
 lijit.com, 558045, RESELLER, fafdf38b16bf6b2b
 improvedigital.com, 2525, RESELLER
+yango-ads.com, 316145221, DIRECT
 rubiconproject.com, 27969, RESELLER, 0bfd66d529a55807
 rubiconproject.com, 22134, RESELLER, 0bfd66d529a55807
 smartadserver.com, 5450, RESELLER, 060d053dcf45cbf3
@@ -128,7 +128,7 @@ spinx.biz, 1373698890, RESELLER
 video.unrulymedia.com, 475093422, RESELLER
 rubiconproject.com, 27714, RESELLER, 0bfd66d529a55807
 orbrx.ai, 8000869124, RESELLER
-inmobi.com, 6c9364435a9e45d3991a375365561333, DIRECT, 83e75a7ae333ca9d
+inmobi.com, 56b6b723bff4492fa27db2dc35652f8f, DIRECT, 83e75a7ae333ca9d
 blis.com, 33, RESELLER, 61453ae19a4b73f4
 mintegral.com, 10003, RESELLER
 rubiconproject.com, 11726, RESELLER, 0bfd66d529a55807
